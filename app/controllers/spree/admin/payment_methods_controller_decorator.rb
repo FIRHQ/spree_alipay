@@ -1,6 +1,4 @@
-#module Spree
-#  module Admin
-#    class PaymentMethodsController.class_eval do
-#    end
-#  end
+#module Spree::Admin::PaymentMethodsControllerDecorator do
 #end
+#
+# Spree::Admin::PaymentMethodsController.prepend(Spree::Admin::PaymentMethodsControllerDecorator)
