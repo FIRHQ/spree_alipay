@@ -1,4 +1,4 @@
-Spree::Order.class_eval do
+module Spree::OrderDecorator
   register_update_hook :send_goods_confirm_for_alipay
   
   def next_step_complete?
@@ -20,5 +20,6 @@ Spree::Order.class_eval do
       end
     end
   end
-  
 end
+
+Spree::Order.prepend(Spree::OrderDecorator)

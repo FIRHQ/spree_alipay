@@ -1,4 +1,4 @@
-Spree::Payment.class_eval do
+module Spree::PaymentDecorator
   def method_alipay?
     payment_method.kind_of? Spree::Gateway::AlipayBase
   end
@@ -28,5 +28,6 @@ Spree::Payment.class_eval do
       end
     end
   end
-
 end
+
+Spree::Payment.prepend(Spree::PaymentDecorator)
