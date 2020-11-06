@@ -1,6 +1,10 @@
 #encoding: utf-8
 module Spree::CheckoutControllerDecorator
-  before_action :checkout_hook, :only => [:update]
+  extend ActiveSupport::Concern
+
+  included do
+    before_action :checkout_hook, :only => [:update]
+  end
 
   private
 

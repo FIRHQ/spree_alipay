@@ -1,5 +1,9 @@
 module Spree::OrderDecorator
-  register_update_hook :send_goods_confirm_for_alipay
+  extend ActiveSupport::Concern
+
+  included do
+    register_update_hook :send_goods_confirm_for_alipay
+  end
   
   def next_step_complete?
     available_steps = checkout_steps
