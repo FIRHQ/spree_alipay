@@ -28,6 +28,6 @@ module Spree::PaymentDecorator
       end
     end
   end
-end
 
-Spree::Payment.prepend(Spree::PaymentDecorator)
+  Spree::Payment.prepend self
+end

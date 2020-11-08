@@ -1,8 +1,6 @@
 module Spree::OrderDecorator
-  extend ActiveSupport::Concern
-
-  included do
-    register_update_hook :send_goods_confirm_for_alipay
+  def self.prepended(base)
+    base.register_update_hook :send_goods_confirm_for_alipay
   end
   
   def next_step_complete?
@@ -24,6 +22,6 @@ module Spree::OrderDecorator
       end
     end
   end
-end
 
-Spree::Order.prepend(Spree::OrderDecorator)
+  Spree::Order.prepend self
+end

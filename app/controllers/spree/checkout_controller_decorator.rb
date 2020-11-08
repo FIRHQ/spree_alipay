@@ -1,9 +1,7 @@
 #encoding: utf-8
 module Spree::CheckoutControllerDecorator
-  extend ActiveSupport::Concern
-
-  included do
-    before_action :checkout_hook, :only => [:update]
+  def self.prepended(base)
+    base.before_action :checkout_hook, :only => [:update]
   end
 
   private
@@ -63,6 +61,5 @@ module Spree::CheckoutControllerDecorator
     order.unprocessed_payments.last.try(:payment_method)
   end
 
+  Spree::CheckoutController.prepend self
 end
-
-Spree::CheckoutController.prepend(Spree::CheckoutControllerDecorator)
