@@ -3,7 +3,6 @@ Spree::Core::Engine.add_routes do
   # Add your extension routes here
   get '/alipay_status/done/' => 'alipay_status#alipay_done', :as => :alipay_done
   post '/alipay_status/notify/' => 'alipay_status#alipay_notify', :as => :alipay_notify
-  post '/alipay_status/notify/' => 'alipay_status#alipay_notify', :as => :alipay_notify
   post '/api/v2/storefront/checkout/order_buy_url' => 'spree/api/v2/storefront/cart#abuy_item_directly'
   #fix issue
   #https://github.com/spree/spree_auth_devise/commit/bab2593f75909feeed3f53b54a63c2edd25f7ba5
