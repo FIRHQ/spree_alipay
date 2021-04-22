@@ -10,7 +10,7 @@ module Spree
     private
 
     def fetch_alipay_url(order)
-      alipay = order.payments.unprocessed_payments.last.try(:payment_method)
+      alipay = order.unprocessed_payments.last.try(:payment_method)
       return nil if alipay.nil?
 
       product_names = order.products.pluck(:name)
