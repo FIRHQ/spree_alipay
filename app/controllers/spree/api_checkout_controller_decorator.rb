@@ -17,7 +17,7 @@ module Spree
       options = {
         out_trade_no: order.number,
         notify_url: alipay_notify_url,
-        return_url: alipay_notify_url,
+        return_url: alipay_done_url,
         body: product_names.join(',').truncate(500), # char 1000
         #:payment_type => 1,
         subject: product_names.join(',').truncate(128) # char 256
