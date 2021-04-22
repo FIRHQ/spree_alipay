@@ -16,8 +16,8 @@ module Spree
       product_names = order.products.pluck(:name)
       options = {
         out_trade_no: order.number,
-        notify_url: url_for(only_path: false, controller: 'alipay_status', action: 'alipay_notify'),
-        return_url: url_for(only_path: false, controller: 'alipay_status', action: 'alipay_done'),
+        notify_url: alipay_notify_url,
+        return_url: alipay_notify_url,
         body: product_names.join(',').truncate(500), # char 1000
         #:payment_type => 1,
         subject: product_names.join(',').truncate(128) # char 256
