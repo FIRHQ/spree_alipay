@@ -2,7 +2,7 @@ module Spree
   module ApiCheckoutControllerDecorator
     def order_buy_url
       order = spree_current_order
-      return head 200 unless order.payments.unprocessed_payments.last
+      return head 200 unless order.unprocessed_payments.last
 
       render json: { url: fetch_alipay_url(order) }
     end
