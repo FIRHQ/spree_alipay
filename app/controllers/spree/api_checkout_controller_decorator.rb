@@ -1,7 +1,7 @@
 module Spree
   module ApiCheckoutControllerDecorator
     def order_buy_url
-      Spree::Order.where(number: params["order_number"]).first
+      order = Spree::Order.where(number: params["order_number"]).first
       order ||= spree_current_order
       return head 200 unless order.unprocessed_payments.last
 
