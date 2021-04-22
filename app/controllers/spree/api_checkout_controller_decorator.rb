@@ -1,5 +1,9 @@
 module Spree
   module ApiCheckoutControllerDecorator
+    def self.prepended(base)
+      base.skip_before_action :ensure_order, :only => [:order_buy_url]
+    end
+
     def order_buy_url
       order = Spree::Order.where(number: params["order_number"]).first
       order ||= spree_current_order
