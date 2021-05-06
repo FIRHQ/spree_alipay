@@ -76,7 +76,7 @@ module Spree
     def complete_order(order, alipay_parameters)
       # unless order.complete?
       alipay_payment = get_alipay_payment(order)
-      return if alipay_payment.complete?
+      return if alipay_payment.completed?
 
       alipay_payment.update_attribute :response_code,
                                       "#{alipay_parameters['trade_no']},#{alipay_parameters['trade_status']}"
