@@ -8,5 +8,9 @@ module Spree
       return true
     end
 
+    def cancel(_response)
+      Rails.logger.info("cancel #{_response}....")
+      Rails.logger.info("just logger, do nothing")
+    end
   end
 end
